@@ -11,9 +11,13 @@ You will need [Deno](https://docs.deno.com/runtime/manual/getting_started/instal
 Simply add your links to `links.txt` file and run the following command:
 
 ```bash
-deno run --allow-net --allow-read --allow-write --allow-env --unstable src/main.ts
+deno task generate
 ```
 
 This will check every page that is listed in your text file and will save the results in the output folder; you can change the folder name from `src/config.json`.
 
-Additionally you can run the `createaImage.ts` and `convertXlsx.ts` file to create images and Excel files from the results.
+Additionally you can run the `convert-xlsx` or `generate-images` tasks to create images and Excel files from the results.
+
+## License
+
+[MIT License](https://github.com/IZM-Projects/social-media-scraper/blob/main/LICENSE) © Abdulbaki "EGGSY" Dursun

@@ -1,7 +1,7 @@
 import { TerminalSpinner } from "https://deno.land/x/spinners@v1.1.2/mod.ts";
 import { existsSync } from "https://deno.land/std@0.203.0/fs/exists.ts";
 import { sleep } from "https://deno.land/x/sleep@v1.2.1/mod.ts";
-import config from "./config.json" assert { type: "json" };
+import config from "@/config.json" assert { type: "json" };
 
 const fileData = Deno.readFileSync(config.linksFile);
 const websites = new TextDecoder().decode(fileData).split("\n");
@@ -47,12 +47,11 @@ for (const [i, website] of websites.entries()) {
   }
 }
 
-if (!existsSync(config.outDir)) {
-  Deno.mkdirSync(config.outDir);
-} else {
+if (existsSync(config.outDir)) {
   Deno.removeSync(config.outDir, { recursive: true });
-  Deno.mkdirSync(config.outDir);
 }
+
+Deno.mkdirSync(config.outDir);
 
 Deno.writeTextFileSync(
   `${config.outDir}/result.json`,

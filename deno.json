@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "@/": "./src/"
+  },
+  "tasks": {
+    "generate": "deno run --allow-net --allow-read --allow-write src/main.ts",
+    "convert-xlsx": "deno run --allow-read --allow-write src/functions/convertXlsx.ts",
+    "generate-images": "deno run --allow-net --allow-read --allow-write src/functions/createImage.ts"
+  }
+}
